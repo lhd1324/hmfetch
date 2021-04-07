@@ -1,0 +1,64 @@
+{
+  "name": "hmfetch",
+  "version": "0.0.1",
+  "description": "create hmfetch package with typescript",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --config jestconfig.json"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "lhd",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/enzyme": "^3.10.3",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "@types/jest": "^24.0.16",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.6",
+    "istanbul": "^0.4.5",
+    "typescript": "~4.1.5",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-typescript": "^7.6.0",
+    "tslib": "^1.10.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ],
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
+  },
+  "dependencies": {},
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      [
+        "@babel/preset-typescript"
+      ]
+    ]
+  }
+}

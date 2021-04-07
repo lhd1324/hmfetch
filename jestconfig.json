@@ -1,0 +1,27 @@
+{
+    "transform": {
+        "^.+\\.js$": "babel-jest",
+        "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testEnvironment": "jsdom",
+    "testRegex": "(/test/.*|(\\.|/)(test|spec))\\.(js|jsx?|tsx?)$",
+    "moduleFileExtensions": [
+        "tsx",
+        "ts",
+        "js",
+        "jsx",
+        "json",
+        "node"
+    ],
+    "collectCoverage": true,
+    "moduleNameMapper": {
+        "^image![a-zA-Z0-9$_-]+$": "GlobalImageStub",
+        "^[./a-zA-Z0-9$_-]+\\.png$": "<rootDir>/RelativeImageStub.js",
+        "module_name_(.*)": "<rootDir>/src.ts"
+    },
+    "globals": {
+        "__DEV__": true,
+        "Navigator": {
+        }
+    }
+}

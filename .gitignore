@@ -1,0 +1,4 @@
+lib/
+# Dependency directories
+node_modules/
+.npmignore
