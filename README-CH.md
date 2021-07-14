@@ -1,17 +1,17 @@
-##### HFetch 介绍
+##### hmfetch 介绍
 
-HFetch 是基于原生fetch基础上实现的一款简易的http请求包，包括了响应数据类型配置，自定义headers，请求超时配置，和拦截器配置
+hmfetch 是基于原生fetch基础上实现的一款简易的http请求包，包括了响应数据类型配置，自定义headers，请求超时配置，和拦截器配置
 
 ##### 安装
 
 ```
-npm install fetch
+npm install hmfetch --save
 ```
 
 ##### 基本使用
 
 ```
-import Fetch from "HFetch";
+import Fetch from "hmfetch";
 
 Fetch.post(url,params).then((reslove)=>{
     console.log(reslove);
@@ -24,7 +24,7 @@ Fetch.post(url,params).then((reslove)=>{
 ##### 超时配置（单位/毫秒）
 
 ```
-import Fetch from "HFetch";
+import Fetch from "hmfetch";
 Fetch.addConfig("timeout",5000);  // 5000 millisecond
 ```
 
@@ -41,8 +41,24 @@ Fetch.addConfig("headers", {
 响应数据类型包括  "json"||"blob"||"text"||"arrayBuffer"||"formData"  默认 json
 
 ```
-import Fetch from "HFetch";
+import Fetch from "hmfetch";
 Fetch.addConfig("dataType", "text");
+```
+
+##### formData
+
+```
+import Fetch from "hmfetch";
+
+Fetch.post(url,{
+    bodyType:"formData",  // 必须
+    body:formData
+}).then((reslove)=>{
+    console.log(reslove);
+},(reject)=>{
+    console.log(reject);
+});
+
 ```
 
 ##### 拦截器配置 （interceptor）

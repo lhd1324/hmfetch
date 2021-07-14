@@ -1,4 +1,4 @@
-##### hmfetch 
+##### HFetch 
 
 A simple, ease of use package ,it is  include timeout, headers, dataType and interceptor for http
 
@@ -11,7 +11,7 @@ npm install hmfetch --save
 ##### usage
 
 ```
-import Fetch from "HFetch";
+import Fetch from "hmfetch";
 
 Fetch.post(url,params).then((reslove)=>{
     console.log(reslove);
@@ -43,6 +43,22 @@ include    "json"||"blob"||"text"||"arrayBuffer"||"formData"    default   json
 ```
 import Fetch from "hmfetch";
 Fetch.addConfig("dataType", "text");
+```
+
+##### formData
+
+```
+import Fetch from "hmfetch";
+
+Fetch.post(url,{
+    bodyType:"formData",  // requierd
+    body:formData
+}).then((reslove)=>{
+    console.log(reslove);
+},(reject)=>{
+    console.log(reject);
+});
+
 ```
 
 ##### interceptor

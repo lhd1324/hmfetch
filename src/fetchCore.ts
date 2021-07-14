@@ -39,7 +39,17 @@ export default class FetchCore {
      * @param config 
      */
     private async init(options: TObj) {
+        
+        if(options?.body?.bodyType === "formData"){
+            options = {
+                ...options,
+                body:options.body.body
+            }
+            delete options.headers["Content-Type"]
+        }
+
         const res: any = await fetch(options.url, options);
+        
         if (options?.dataType && !transfromResponse[options?.dataType]) {
             return `${options?.dataType}数据格式不存在！`
         }
@@ -122,7 +132,9 @@ export default class FetchCore {
     */
     public async req(url: string, data?: TObj, config?: TObj) {
         const options: TObj = this.mergeConfig(config, this.defaultConfig);
-        if (data) {
+        if (data&&data?.bodyType === "formData") {
+            options.body = data //JSON.stringify(data)
+        }else{
             options.body = JSON.stringify(data)
         }
         options.url = url;
