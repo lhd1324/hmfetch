@@ -48,7 +48,12 @@ export default class FetchCore {
             delete options.headers["Content-Type"]
         }
 
-        const res: any = await fetch(options.url, options);
+        const res: any = await fetch(options.url, options).catch(res=>{
+            this.interceptor.interceptorRes?.handler[0]?.rejected(res);
+        });
+        if(!res){
+            return;
+        }
         
         if (options?.dataType && !transfromResponse[options?.dataType]) {
             return `${options?.dataType}数据格式不存在！`
