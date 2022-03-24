@@ -139,7 +139,7 @@ export default class FetchCore {
         const options: TObj = this.mergeConfig(config, this.defaultConfig);
         if (data&&data?.bodyType === "formData") {
             options.body = data //JSON.stringify(data)
-        }else{
+        }else if(data){
             options.body = JSON.stringify(data)
         }
         options.url = url;
